@@ -1,0 +1,245 @@
+.attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+    main{
+      padding: 80px;
+      background-color: hsl(36, 100%, 99%);
+      font-family: 'Inter', sans-serif;
+      display: grid;
+      grid-template-areas: 
+        "nav nav nav"
+        "img img new"
+        "main main new"
+        "bot bot bot";
+      gap: 20px 50px;
+      grid-template-columns: 1fr 1fr 1fr;
+      transition: 1s ease;
+    }
+    body{
+      position: relative;
+      min-width: 280px;
+    }
+    p{
+      font-size: 15px;
+      color:hsl(236, 13%, 42%);
+    }
+    nav{
+      grid-area: nav;
+      position: relative;
+    }
+    ul{
+      float: right;
+      display: flex;
+      list-style: none;
+    }
+    li{
+      font-size: 20px;
+      margin: 10px;
+    }
+    a{
+      text-decoration: none;
+      color:hsl(236, 13%, 42%);
+      transition: 300ms;
+    }
+    a:hover{
+      color: hsl(5, 85%, 63%);
+    }
+    .hamburger{
+      display: none;
+      z-index: 1;
+      position: absolute;
+      right: 20px;
+      top: 20px;
+      transition: 500ms ease-in-out;
+    }
+    .hamburger:hover{
+      transform: scale(1.1);
+      cursor: pointer;
+    }
+    .hamburger>.bar{
+      height: 3px;
+      width: 40px;
+      margin: 6px;
+      background-color:hsl(240, 100%, 5%);
+      transition: 400ms ease-in-out;
+    }
+    .content{
+      grid-area: main;
+      display: flex;
+    }
+    .img{
+      width: 100%;
+      grid-area: img;
+    }
+    .title{
+      margin: 0;
+      color: hsl(240, 100%, 5%);
+      width: 40%;
+      font-size: 50px;
+      font-weight: 800;
+    }
+    .summary{
+      margin: auto;
+      width: 50%;
+    }
+    .summary>p{
+      font-size: 18px;
+    }
+    button{
+      background-color: hsl(5, 85%, 63%);
+      font-size: 20px;
+      font-weight: 700;
+      border: none;
+      color: hsl(36, 100%, 99%);
+      width: 210px;
+      height: 55px;
+      transition: 200ms ease;
+    }
+    button:hover{
+      cursor: pointer;
+      background-color: hsla(5, 85%, 63%, 0.864);
+    }
+    aside{
+      grid-area:new;
+      background-color: hsl(240, 100%, 5%);
+      color:hsl(36, 100%, 99%);
+      padding: 25px;
+    }
+    .new{
+      color: hsl(35, 77%, 62%);
+      font-size: 45px;
+    }
+
+    .newArticle{
+      border-bottom: 1px solid hsl(36, 100%, 99%);
+    }
+    .newArticle>p{
+      color:hsl(233, 8%, 79%);
+    }
+    .lastArticle>p{
+      color:hsl(233, 8%, 79%);
+    }
+    .newTitle{
+      transition: 300ms;
+    }
+    .newTitle:hover{
+      color:hsl(35, 77%, 62%);
+      cursor: pointer;
+    }
+    footer{
+      margin-top: 50px;
+      gap: 20px;
+      grid-area:bot;
+      display: flex;
+    }
+    article{
+      display: flex;
+      flex-direction: row;
+      padding-bottom: 10px;
+      height: 13rem;
+    }
+    article>img{
+      margin-right: 15px;
+      width: 30%;
+      min-width: 100px;
+      height: 140px;
+    }
+    .articleInfo{
+        text-align:left;
+        display: flex;
+        flex-direction: column;
+    }
+    .articleInfo>h3{
+      color: hsl(240, 100%, 5%);
+      margin: 5px;
+      transition: 300ms;
+    }
+    .articleInfo>h3:hover{
+      cursor: pointer;
+      color: hsl(5, 85%, 63%);
+    }
+    .number{
+      color: hsl(233, 8%, 79%) !important;
+      font-weight: 400;
+      font-size: 40px;
+      margin: 0;
+    }
+    @media (max-width: 904px){
+      main{
+        padding: 0;
+        padding-bottom: 10px;
+      }
+    }
+    @media (max-width: 778px){
+      main{
+        padding-bottom: 10px;
+        display: flex;
+        flex-direction: column;
+      }
+      ul{
+        position: fixed;
+        padding-left: 10%;
+        right: 0;
+        top:-16px;
+        right:-100%;
+        background-color: white;
+        width: 60%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        transition: 500ms ease-in-out;
+      }
+      ul.active{
+        right: 0;
+      }
+      li{
+        position: relative;
+        top: 100px;
+        width: 50%;
+        font-weight: 700;
+      }
+      li>a{
+        color: hsl(236, 13%, 42%);
+      }
+      .hamburger{
+        display: block;
+        transition: 1s ease-in-out;
+      }
+      .hamburger.active{
+        position: fixed;
+        top: 16px;
+        right: 16 px;
+      }
+      .hamburger.active .bar:nth-child(2){
+        opacity: 0;
+      }
+      .hamburger.active .bar:nth-child(1){
+        transform: translateY(9px) rotate(45deg);
+      }
+      .hamburger.active .bar:nth-child(3){
+        transform: translateY(-8px) rotate(-45deg);
+      }
+      /* .hamburger.active.bar:nth-child(2){
+        opacity: 0;
+      }
+      .hamburger.active .bar :nth-child(1){
+        transform: translateY(8px) rotate(45deg);
+      }
+      .hamburger.active .bar :nth-child(3){
+        transform: translateY(-8px) rotate(-45deg);
+      } */
+      footer{
+        display: flex;
+        flex-direction: column;
+      }
+      .content{
+        display: flex;
+        flex-direction: column;
+      }
+      .summary{
+        width: 100%;
+      }
+      .title{
+        font-size: 35px;
+        width: 80%;
+      }
+    }
